@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+
+	RewriteEngine on
+	
+	RewriteCond $1 !^(index.php|assets|templates|upload|database|images)
+	
+	RewriteCond %{REQUEST_FILENAME} !-d 
+	
+	RewriteCond %{REQUEST_URI} (.+)/$
+	
+	RewriteRule ^ %1 [L,R=301]
+	
+	RewriteCond %{REQUEST_FILENAME} !-f 
+	
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+
+
