@@ -21,6 +21,7 @@
                           <th>No. Ref</th>
                           <th>Tanggal</th>
                           <th>Mandor</th>
+                          <th>Blok</th>
                           <th>Hok</th>
                           <th>Hasil (Kg)</th>
                           <th>Kualitas (Ms)</th>

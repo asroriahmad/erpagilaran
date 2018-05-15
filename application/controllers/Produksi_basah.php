@@ -8,18 +8,19 @@ class Produksi_basah extends CI_Controller {
 		parent::__construct();		
 		$this->load->model('Produksi_basah_models', 'produksi_basah');
 		$this->load->helper('url');
+		$this->load->library('pagination');
 	}
 
 	function index()
 	{
 		
+
 		$data = array(
       	'produksi_basah' => $this->produksi_basah->getAllData(),
       	'total_basah' => $this->produksi_basah->total_produksi(),
-
+      	'total_produksi_afdeling' => $this->produksi_basah->total_produksi_afdeling(),
 		);
 
-		// $data['produksi_basah'] = $this->Produksi_basah_models->getAllData()->result();
 
 		$this->load->view('Production/view-produksi-basah', $data);
 
@@ -29,6 +30,9 @@ class Produksi_basah extends CI_Controller {
 	function add(){
 
 		$data = array(
+		'produksi_basah' => $this->produksi_basah->getAllData(),
+      	'total_basah' => $this->produksi_basah->total_produksi(),
+      	'total_produksi_afdeling' => $this->produksi_basah->total_produksi_afdeling(),
       	'afdeling' => $this->produksi_basah->get_jenis_produksi(),
 		);
 
@@ -51,7 +55,7 @@ class Produksi_basah extends CI_Controller {
 		);
 
 		$this->produksi_basah->insert($data);
-		redirect('produksi_basah');	
+		redirect('produksi_basah/add');	
 	}
 
 	function total_produksi_basah(){

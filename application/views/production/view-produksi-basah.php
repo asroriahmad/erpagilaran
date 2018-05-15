@@ -52,40 +52,39 @@
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                           <span class="count_top"><i class="fa fa-clock-o"></i> Produksi Pucuk Pagilaran</span>
-                          <div class="count">45.000</div>
+                          <div class="count"><?php echo number_format($total_basah, 2) ?></div>
                           <span class="count_bottom"> Kg Pucuk </span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                           <span class="count_top"><i class="fa fa-clock-o"></i> Produksi Pucuk Andongsili</span>
-                          <div class="count">45.000</div>
+                          <div class="count"><?php echo number_format($total_basah, 2) ?></div>
                           <span class="count_bottom"> Kg Pucuk </span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                           <span class="count_top"><i class="fa fa-clock-o"></i> Produksi Pucuk Kayulandak</span>
-                          <div class="count">45.000</div>
+                          <div class="count"><?php echo number_format($total_basah, 2) ?></div>
                           <span class="count_bottom"> Kg Pucuk </span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                           <span class="count_top"><i class="fa fa-clock-o"></i> Produksi Pucuk Unit Lain</span>
-                          <div class="count">45.000</div>
+                          <div class="count"><?php echo number_format($total_basah, 2) ?></div>
                           <span class="count_bottom"> Kg Pucuk </span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                           <span class="count_top"><i class="fa fa-clock-o"></i> Produksi Pucuk Karyawan</span>
-                          <div class="count">45.000</div>
+                          <div class="count"><?php echo number_format($total_basah, 2) ?></div>
                           <span class="count_bottom"> Kg Pucuk </span>
                         </div>
                         
                       </div>
 
-                    <div class="well" style="overflow: auto">
+                    <!-- <div class="well" style="overflow: auto">
                       <div class="col-md-4">
                         <div id="reportrange_right" class="pull-left"  >
                           <button class="btn btn-primary" onClick="return redirect('<?php echo base_url("Produksi_basah/add"); ?>');">Input Produksi Basah</button>
                         </div>
                       </div>
                       <div class="col-md-4">
-                       <!-- <?= $total_basah ?> -->
                       </div>
                       <div class="col-md-4">
                         <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
@@ -93,6 +92,9 @@
                           <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
                         </div>
                       </div>
+                    </div> -->
+                    <div class='info '>
+                       <button class="btn btn-default" onClick="return redirect('<?php echo base_url("Produksi_basah/add"); ?>');">Input Produksi Basah</button>
                     </div>
 
                     <!-- start project list -->
@@ -106,7 +108,7 @@
                           <th>Kwalitas (Ms)</th>
                           <th>Status Kebun</th>
                           <th>Keterangan</th>
-                          <th style="width: 10%">Aksi</th>
+                          <th style="width: 15%">Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -122,12 +124,13 @@
                           <td><?= $row->nama_afdeling ?></td>
                           <td><?= $row->deskripsi ?></td>
                           <td>
-                            <!-- <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a> -->
+                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
                             <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
                           </td>
                         </tr>
                         <?php } ?>
+
                       </tbody>
                     </table>
                     <!-- end project list -->

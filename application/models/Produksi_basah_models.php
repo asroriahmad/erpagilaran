@@ -17,6 +17,20 @@ class Produksi_basah_models extends CI_Model{
 
 	}
 
+	// function data($number,$offset){
+	// 	return $query = $this->db->get('tb_produksi_harian',$number,$offset)->result();		
+	// }
+
+	// function pagination_basah(){
+	// 	return $this->db->get('tb_produksi_harian')->num_rows();
+	// }
+
+	function pagination_basah($limit, $start){
+        $query = $this->db->get('tb_produksi_harian', $limit, $start)->result();
+        return $query;
+    }
+
+    
 	function get_id($id)
 	{
 		$this->db->select('*');
@@ -46,32 +60,16 @@ class Produksi_basah_models extends CI_Model{
 
 	}
 
-	// function total_produksi_afdeling(){
-	// 	$query = $this->db->select('*', COUNT('id_afdeling'))->group_by('id_afdeling')->from('tb_produksi_harian')->get()->result();
-	// 	return $query;
-
-	// }
-
 	function total_produksi_afdeling(){
-
-		$query = $this->db->select('id_afdeling, COUNT(id_afdeling), DATE_FORMAT("%Y-%m")')->from('tb_produksi_harian')->group_by(array('id_afdeling', 'DATE_FORMAT(tanggal,"%y-%m")'))->get()->result();
+		
+		// $query = $this->db->select('id_afdeling,tanggal, SUM(hasil) as total')->from('tb_produksi_harian')->group_by('tanggal')->where('id_afdeling',4)->get()->result();
+		$query = $this->db->select('id_afdeling, SUM(hasil) total')->from('tb_produksi_harian')->group_by('tanggal')->get()->result();
+		
 		return $query;
 
 
-
-	
 	}
-
 
 	}
 ?>
 
-
-<!-- $data = array();
-  $options = array('idblog' => $idblog);
-  $Q = $this->db->get_where('tb_blogs',$options,1);
-    if ($Q->num_rows() > 0){
-      $data = $Q->row_array();
-    }
-  $Q->free_result();
-  return $data; -->

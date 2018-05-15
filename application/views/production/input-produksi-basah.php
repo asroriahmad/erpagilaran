@@ -45,9 +45,9 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-5">
+
                         <form class="form-horizontal form-label-left input_mask" method="post" action="<?php echo base_url().'Produksi_basah/insert'; ?>">
                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                           
                             <input type="text" class="form-control has-feedback-left" id="inputSuccess2" name="id_produksi"  placeholder="No. Ref Produksi" >
                             <span class="fa fa-check form-control-feedback left" aria-hidden="true"></span>
                           </div>
@@ -88,7 +88,7 @@
                           </div>
 
                           <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Keterangan * : </label>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Komentar * : </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
                                <textarea id="message" required="required" class="form-control" name="deskripsi" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 caracters long comment.."
                               data-parsley-validation-threshold="10"></textarea>
@@ -107,15 +107,56 @@
                       <div class="col-md-7">
                         <div class="x_panel">
                           <div class="x_title">
-                            <h2>Petunjuk Cara Mengisi Data Produksi </h2>
+                            <h2>Data Input Produksi Basah </h2>
                             <div class="clearfix"></div>
                           </div>
                           <div class="x_content">
-                            <h4>Produksi Basah <small> Unit Produksi pagilaran</small></h4>
+                           <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                              <thead>
+                                
+                                <tr>
+                                  <th>Tanggal</th>
+                                  <th>Quantity (Kg)</th>
+                                  <th>Kwalitas (Ms)</th>
+                                  <th>Status Kebun</th>
+                                  <th>Keterangan</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <?php 
+                                  $no = 1;
+                                  foreach($produksi_basah as $row){ 
+                                ?>
+                                <tr>
+                                  <td><?= date('d F Y', strtotime($row->tanggal)) ?></td>
+                                  <td><?= $row->hasil ?></td>
+                                  <td><?= $row->kualitas ?></td>
+                                  <td><?= $row->nama_afdeling ?></td>
+                                  <td><?= $row->deskripsi ?></td>
+                                </tr>
+                                <?php } ?>
+
+                              </tbody>
+                            </table>
+                            <div class='info '>
+                              <!-- <h2>Total Produksi Basah: <span id='#'><?php echo number_format($total_basah, 2) ?> Kg</span></h2> -->
+                              <h2>Total Produksi Basah: <span id='#'><?php echo $total_basah ?> Kg</span></h2>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="x_panel">
+                          <div class="x_title">
+                            <h4>Petunjuk Cara Mengisi Data Produksi </h4>
+                            <div class="clearfix"></div>
+                          </div>
+                          <div class="x_content">
+                            <h5>Produksi Basah <small> Unit Produksi pagilaran</small></h5>
                             <p>- Also you can give a default rating by adding attribute data-rating, Also you can give a default rating by adding attribute data-rating</p>
 
                           </div>
                         </div>
+
                       </div>
                   </div>
                 </div>
